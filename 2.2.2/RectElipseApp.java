@@ -46,21 +46,21 @@ class rectElipseframe extends JFrame {
 
     public void paint (Graphics g) {
         super.paint(g);
-        this.r1.paint(g);
-        this.r2.paint3(g);
-        this.r3.paint2(g);
-        this.r4.paint4(g);
-        this.r5.paint5(g);
-        this.r6.paint2(g);
-        this.r7.paint3(g);
-        this.r8.paint5(g);
-        this.r9.paint4(g);
+        this.r1.paint(g, new Color(56,255,142), new Color(255,56,142));
+        this.r2.paint(g, new Color(56,255,142), new Color(255,156,202));
+        this.r3.paint(g, new Color(56,255,142), new Color(135,46,142));
+        this.r4.paint(g, new Color(56,255,142), new Color(25,254,122));
+        this.r5.paint(g, new Color(56,255,142), new Color(15,236,182));
+        this.r6.paint(g, new Color(56,255,142), new Color(135,46,142));
+        this.r7.paint(g, new Color(56,255,142), new Color(255,156,202));
+        this.r8.paint(g, new Color(56,255,142), new Color(15,236,182));
+        this.r9.paint(g, new Color(56,255,142), new Color(25,254,122));
 
-        this.e1.paint(g);
-        this.e2.paint2(g);
-        this.e3.paint3(g);
-        this.e4.paint4(g);
-        this.e5.paint5(g);
+        this.e1.paint(g, new Color(56,255,142), new Color(255,56,142));
+        this.e2.paint(g, new Color(56,255,142), new Color(135,46,142));
+        this.e3.paint(g, new Color(56,255,142), new Color(255,156,202));
+        this.e4.paint(g, new Color(56,255,142), new Color(25,254,122));
+        this.e5.paint(g, new Color(56,255,142), new Color(15,236,182));
     }
 }
 
@@ -80,41 +80,13 @@ class Rect {
             this.w, this.h, this.x, this.y);
     }
     
-    void paint (Graphics g) {
+    void paint (Graphics g, Color borda, Color preencher) {
         Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(56,255,142));
+        g.setColor(borda);
         g2d.drawRect(this.x,this.y, this.w,this.h);
-        g.setColor(new Color(255,56,142));
+        g.setColor(preencher);
         g2d.fillRect(this.x,this.y, this.w,this.h);
     }   
-    void paint2 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(56,255,142));
-        g2d.drawRect(this.x,this.y, this.w,this.h);
-        g.setColor(new Color(135,46,142));
-        g2d.fillRect(this.x,this.y, this.w,this.h);
-    }   
-    void paint3 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(56,255,142));
-        g2d.drawRect(this.x,this.y, this.w,this.h);
-        g.setColor(new Color(255,156,202));
-        g2d.fillRect(this.x,this.y, this.w,this.h);
-    }   
-    void paint4 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(56,255,142));
-        g2d.drawRect(this.x,this.y, this.w,this.h);
-        g.setColor(new Color(25,254,122));
-        g2d.fillRect(this.x,this.y, this.w,this.h);
-    }   
-    void paint5 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(56,255,142));
-        g2d.drawRect(this.x,this.y, this.w,this.h);
-        g.setColor(new Color(15,236,182));
-        g2d.fillRect(this.x,this.y, this.w,this.h);
-    }
 }
 
 class Elipse {
@@ -133,48 +105,11 @@ class Elipse {
             this.w, this.h, this.x, this.y);
     }
 
-    void paint (Graphics g) {
+    void paint (Graphics g, Color borda, Color preencher) {
         Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(46,25,142));
-    
+        g.setColor(borda);
         g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-        g.setColor(new Color(255,56,142));
-        g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-
-    }
-    void paint2 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(46,25,142));
-
-        g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-        g.setColor(new Color(135,46,142));
-        g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-
-    }
-    void paint3 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(46,25,142));
-
-        g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-        g.setColor(new Color(255,156,202));
-        g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-
-    }
-    void paint4 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(46,25,142));
-
-        g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-        g.setColor(new Color(25,254,122));
-        g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-
-    }
-    void paint5 (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(46,25,142));
-
-        g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-        g.setColor(new Color(15,236,182));
+        g.setColor(preencher);
         g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
 
     }
