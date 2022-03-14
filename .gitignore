@@ -1,0 +1,4 @@
+*.class
+teste.java
+*.exe
+.vscode/settings.json
