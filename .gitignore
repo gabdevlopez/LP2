@@ -2,3 +2,5 @@
 teste.java
 *.exe
 .vscode/settings.json
+*.json
+testes/teste.c
