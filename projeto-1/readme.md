@@ -11,11 +11,11 @@
     <li>Ao apertar a tecla <b>P</b> surge um polígono de 5 lados.</li>
 </ul>
 
-<h3>Obs.:</h3>
+<h3>Observações:</h3>
 
-<p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>"</p>
+<p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>".</p>
 
-<p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória</p>
+<p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória.</p>
 
 <h3>Movendo as figuras</h3>
 
