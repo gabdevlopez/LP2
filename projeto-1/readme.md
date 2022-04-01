@@ -19,13 +19,13 @@
 
 <h3>Movendo as figuras</h3>
 
-<p>Para mover uma figura é só clicar sobre ela, segurar o botão direito do mouse e arrastar ou, se preferir, utilize as setas do teclado</p>
+<p>Para mover uma figura é só clicar sobre ela, segurar o botão direito do mouse e arrastar ou, se preferir, utilize as setas do teclado.</p>
 
 <h3>Redimensionando</h3>
 
 <p>Clique na figura que deseja redimensionar e em seguida:</p>
 <ul>    
-    <li>Ao apertar a tecla "<b>-</b>" diminui o tamanho da figura</li>
-    <li>Ao apertar a tecla "<b>+</b>" (<i>ou a tecla "=" para notebooks sem a parte numérica do teclado</i>) aumenta o tamanho da figura</li>
+    <li>Ao apertar a tecla "<b>-</b>" diminui o tamanho da figura;</li>
+    <li>Ao apertar a tecla "<b>+</b>" (<i>ou a tecla "=" para notebooks sem a parte numérica do teclado</i>) aumenta o tamanho da figura.</li>
 </ul>
 
