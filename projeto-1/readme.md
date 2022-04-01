@@ -8,7 +8,7 @@
     <li>Ao apertar a tecla <b>E</b> surge uma elipse;</li>
     <li>Ao apertar a tecla <b>R</b> surge um retângulo;</li>
     <li>Ao apertar a tecla <b>T</b> surge um texto com o conteúdo: "Olá galera!";</li>
-    <li>Ao apertar a tecla <b>P</b> surge um polígono de 5 lados.</li>
+    <li>Ao apertar a tecla <b>P</b> surge um polígono de 6 lados.</li>
 </ul>
 
 <h3>Observações:</h3>
