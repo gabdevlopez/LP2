@@ -36,7 +36,6 @@ class ListFrame extends JFrame {
             }
         );
 
-        
         this.addMouseListener(
             new MouseAdapter() {
                 public void mousePressed(MouseEvent evt){
@@ -137,7 +136,6 @@ class ListFrame extends JFrame {
                 }
             }
         );
-
         this.setTitle("Projeto-1");
         this.setSize(350, 350);
         this.getContentPane().setBackground(Color.black);
