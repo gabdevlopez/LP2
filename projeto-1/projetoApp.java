@@ -20,7 +20,7 @@ class ListFrame extends JFrame {
     Random A = new Random();
     Point mouse = null;
     Point posMouse = null;
-    Figure focus = null;
+    Figure focus;
 
     int rgb2[];
     int vermelho[] = new int[] {255, 0, 0};
@@ -109,6 +109,30 @@ class ListFrame extends JFrame {
                     if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
                         figs.add(new Texto("ola galera!", x,y, branco));
                     } 
+
+                    if (focus != null){
+                        if (evt.getKeyCode() == KeyEvent.VK_UP){ 
+                            focus.drag(0,-5);   
+                        }  
+                        if (evt.getKeyCode() == KeyEvent.VK_DOWN){ 
+                            focus.drag(0,5);
+                        } 
+                        if (evt.getKeyCode() == KeyEvent.VK_LEFT){ 
+                            focus.drag(-5,0);
+                        } 
+                        if (evt.getKeyCode() == KeyEvent.VK_RIGHT){ 
+                            focus.drag(5,0);
+                        } 
+                        if (evt.getKeyCode() == '=' || evt.getKeyCode() == '+'){ 
+                            focus.tamanho(5,5);
+                        } 
+                        if (evt.getKeyCode() == '-'){ 
+                            focus.tamanho(-5,-5);
+                        }
+                        if (evt.getKeyCode() == KeyEvent.VK_DELETE){ 
+                            figs.remove(focus);
+                        }
+                    }
                     repaint();
                 }
             }
