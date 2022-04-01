@@ -5,17 +5,15 @@
 <h3>Criando as figuras</h3>
 
 <ul>    
-    <li>Ao apertar a tecla <b>E</b> surge uma elipse</li>
-    <li>Ao apertar a tecla <b>R</b> surge um retângulo</li>
-    <li>Ao apertar a tecla <b>T</b> surge um texto com o conteúdo: "Olá galera!"</li>
-    <li>Ao apertar a tecla <b>P</b> surge um polígono de 5 lados</li>
+    <li>Ao apertar a tecla <b>E</b> surge uma elipse;</li>
+    <li>Ao apertar a tecla <b>R</b> surge um retângulo;</li>
+    <li>Ao apertar a tecla <b>T</b> surge um texto com o conteúdo: "Olá galera!";</li>
+    <li>Ao apertar a tecla <b>P</b> surge um polígono de 5 lados.</li>
 </ul>
 
-<h3>Criando as figuras</h3>
+<h3>Obs.:</h3>
 
-<p>Parad deletar alguma forma, basta clicar na tecla "<b>delete</b>"</p>
-
-<br>
+<p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>"</p>
 
 <p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória</p>
 
