@@ -46,28 +46,28 @@ public class poligono extends Figure{
         }
     }
 
-    public void tamanho(int qtd){
+    public void tamanho(int num){
 
         if(this.w >= 40 && this.w <= 200){
             if(this.w == 200){
-                qtd = -5;
+                num = -5;
             }
             else if(this.w == 40){
-                qtd = +5;
+                num = +5;
             }
 
-            this.w += qtd;
+            this.w += num;
 
-            this.pontosX[1] += qtd; 
-            this.pontosX[2] += qtd; 
-            this.pontosX[4] -= qtd; 
-            this.pontosX[5] -= qtd; 
+            this.pontosX[1] += num; 
+            this.pontosX[2] += num; 
+            this.pontosX[4] -= num; 
+            this.pontosX[5] -= num; 
 
-            this.pontosY[1] += qtd/2; 
-            this.pontosY[2] += qtd; 
-            this.pontosY[3] += qtd + qtd/2; 
-            this.pontosY[4] += qtd; 
-            this.pontosY[5] += qtd/2; 
+            this.pontosY[1] += num/2; 
+            this.pontosY[2] += num; 
+            this.pontosY[3] += num + num/2; 
+            this.pontosY[4] += num; 
+            this.pontosY[5] += num/2; 
         }
 
         

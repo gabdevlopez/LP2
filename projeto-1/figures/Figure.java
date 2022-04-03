@@ -24,15 +24,15 @@ public abstract class Figure {
         return (this.x <= mx && mx<= this.x + this.w && this.y <= my && my <= this.y + this.w);
     }
 
-    public void tamanho(int qtd){
+    public void tamanho(int num){
         if(this.w >= 30 && this.w <= 200){
             if(this.w == 200){
-                qtd = -5;
+                num = -5;
             }
             else if(this.w == 30){
-                qtd = +5;
+                num = +5;
             }
-            this.w += qtd;
+            this.w += num;
         }
     }
     
