@@ -18,7 +18,7 @@
 <p>Clique na figura que deseja redimensionar e em seguida:</p>
 <ul>    
     <li>Ao apertar a tecla "<b>-</b>" diminui o tamanho da figura;</li>
-    <li>Ao apertar a tecla "<b>+</b>" (<i>ou a tecla "=" para notebooks sem a parte numérica do teclado</i>) aumenta o tamanho da figura.</li>
+    <li>Ao apertar a tecla "<b>+</b>" (<i>ou a tecla "=" para teclados sem a parte numérica do teclado</i>) aumenta o tamanho da figura.</li>
 </ul>
 
 <h2>Observações:</h2>
