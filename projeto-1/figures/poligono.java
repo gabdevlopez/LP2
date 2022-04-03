@@ -20,7 +20,7 @@ public class poligono extends Figure{
     }
     
     public void print () {
-        System.out.format("poligono de 5 lados.\n");
+        System.out.format("poligono de 6 lados.\n");
     }
 
     public void paint (Graphics g) {
