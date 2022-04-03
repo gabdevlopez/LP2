@@ -106,7 +106,7 @@ class ListFrame extends JFrame {
                         figs.add(new poligono(x,y, preto, rgb));
                     }
                     if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
-                        figs.add(new Texto("olá galera!", x,y, branco));
+                        figs.add(new Texto("ola galera!", x,y, branco));
                     } 
 
                     if (focus != null){
@@ -123,10 +123,10 @@ class ListFrame extends JFrame {
                             focus.drag(5,0);
                         } 
                         if (evt.getKeyCode() == '=' || evt.getKeyCode() == '+'){ 
-                            focus.tamanho(5,5);
+                            focus.tamanho(5);
                         } 
                         if (evt.getKeyCode() == '-'){ 
-                            focus.tamanho(-5,-5);
+                            focus.tamanho(-5);
                         }
                         if (evt.getKeyCode() == KeyEvent.VK_DELETE){ 
                             figs.remove(focus);

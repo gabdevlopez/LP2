@@ -8,7 +8,7 @@ public class poligono extends Figure{
     protected int[] pontosX;
     protected int[] pontosY;
     protected int[] rgb2;
-    protected int w = 50, h = 50;
+    protected int w = 50;
 
     public poligono(int x, int y, int[] rgb, int[] rgb2) {
         
@@ -45,31 +45,29 @@ public class poligono extends Figure{
             this.pontosY[i] += dy;
         }
     }
-    public void tamanho(int w, int h){
+
+    public void tamanho(int qtd){
 
         if(this.w >= 40 && this.w <= 200){
             if(this.w == 200){
-                w = -5;
-                h = -5;
+                qtd = -5;
             }
             else if(this.w == 40){
-                w = +5;
-                h = +5;
+                qtd = +5;
             }
 
             this.w += w;
-            this.h += h;
 
-            this.pontosX[1] += w; 
-            this.pontosX[2] += w; 
-            this.pontosX[4] -= w; 
-            this.pontosX[5] -= w; 
+            this.pontosX[1] += qtd; 
+            this.pontosX[2] += qtd; 
+            this.pontosX[4] -= qtd; 
+            this.pontosX[5] -= qtd; 
 
-            this.pontosY[1] += h/2; 
-            this.pontosY[2] += h; 
-            this.pontosY[3] += h + h/2; 
-            this.pontosY[4] += h; 
-            this.pontosY[5] += h/2; 
+            this.pontosY[1] += qtd/2; 
+            this.pontosY[2] += qtd; 
+            this.pontosY[3] += qtd + qtd/2; 
+            this.pontosY[4] += qtd; 
+            this.pontosY[5] += qtd/2; 
         }
 
         

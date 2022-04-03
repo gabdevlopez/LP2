@@ -19,8 +19,22 @@ public abstract class Figure {
     public void cor(int [] rgb){
         this.rgb = rgb;
     }
+
+    public boolean clicked (int mx, int my) {
+        return (this.x <= mx && mx<= this.x + this.w && this.y <= my && my <= this.y + this.w);
+    }
+
+    public void tamanho(int qtd){
+        if(this.w >= 30 && this.w <= 200){
+            if(this.w == 200){
+                qtd = -5;
+            }
+            else if(this.w == 30){
+                qtd = +5;
+            }
+            this.w += w;
+        }
+    }
     
     public abstract void paint(Graphics g);
-    public abstract void tamanho(int w, int h);
-    public abstract boolean clicked (int mx, int my);
 }
