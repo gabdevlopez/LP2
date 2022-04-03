@@ -7,7 +7,6 @@ public class Elipse extends Figure{
     public Elipse (int x, int y, int[] rgb, int[] rgb2) {
         super(rgb,x, y);
         this.rgb2 = rgb2;
-
     }
 
     public void print () {
@@ -22,9 +21,5 @@ public class Elipse extends Figure{
 
         g2d.setColor(new Color(this.rgb2[0], this.rgb2[1], this.rgb2[2]));
         g2d.fillOval(this.x,this.y, this.w,this.w);
-    }
-
-    public boolean clicked (int mx, int my) { //função para dectar quando o mouse clicar na figura
-        return (this.x <= mx && mx<= this.x + this.w && this.y <= my && my <= this.y + this.w);
     }
 }

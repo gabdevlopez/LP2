@@ -69,7 +69,5 @@ public class poligono extends Figure{
             this.pontosY[4] += num; 
             this.pontosY[5] += num/2; 
         }
-
-        
     }
 }

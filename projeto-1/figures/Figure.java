@@ -35,6 +35,5 @@ public abstract class Figure {
             this.w += num;
         }
     }
-    
     public abstract void paint(Graphics g);
 }

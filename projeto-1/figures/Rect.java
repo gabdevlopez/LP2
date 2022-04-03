@@ -8,7 +8,6 @@ public class Rect extends Figure{
     public Rect (int x, int y, int[] rgb, int[] rgb2) {
         super(rgb, x, y);
         this.rgb2 = rgb2;
-
     }
 
     public void print () {
@@ -24,5 +23,4 @@ public class Rect extends Figure{
         g2d.setColor(new Color(this.rgb2[0], this.rgb2[1], this.rgb2[2]));
         g2d.fillRect(this.x,this.y, this.w,this.w);
     }
-
 }
