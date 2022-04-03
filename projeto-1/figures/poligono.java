@@ -56,7 +56,7 @@ public class poligono extends Figure{
                 qtd = +5;
             }
 
-            this.w += w;
+            this.w += qtd;
 
             this.pontosX[1] += qtd; 
             this.pontosX[2] += qtd; 

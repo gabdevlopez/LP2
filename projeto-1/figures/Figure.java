@@ -32,7 +32,7 @@ public abstract class Figure {
             else if(this.w == 30){
                 qtd = +5;
             }
-            this.w += w;
+            this.w += qtd;
         }
     }
     
