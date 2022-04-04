@@ -99,13 +99,13 @@ class ListFrame extends JFrame {
                     if (evt.getKeyChar() == 'r' || evt.getKeyChar() == 'R'){
                         figs.add(new Rect(x,y, preto, rgb));
                     } 
-                    if (evt.getKeyChar() == 'e' || evt.getKeyChar() == 'E'){
+                    else if (evt.getKeyChar() == 'e' || evt.getKeyChar() == 'E'){
                         figs.add(new Elipse(x,y, preto, rgb));
                     } 
-                    if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
+                    else if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
                         figs.add(new poligono(x,y, preto, rgb));
                     }
-                    if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
+                    else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
                         figs.add(new Texto("ola galera!", x,y, branco));
                     } 
 
@@ -113,22 +113,22 @@ class ListFrame extends JFrame {
                         if (evt.getKeyCode() == KeyEvent.VK_UP){ 
                             focus.drag(0,-5);   
                         }  
-                        if (evt.getKeyCode() == KeyEvent.VK_DOWN){ 
+                        else if (evt.getKeyCode() == KeyEvent.VK_DOWN){ 
                             focus.drag(0,5);
                         } 
-                        if (evt.getKeyCode() == KeyEvent.VK_LEFT){ 
+                        else if (evt.getKeyCode() == KeyEvent.VK_LEFT){ 
                             focus.drag(-5,0);
                         } 
-                        if (evt.getKeyCode() == KeyEvent.VK_RIGHT){ 
+                        else if (evt.getKeyCode() == KeyEvent.VK_RIGHT){ 
                             focus.drag(5,0);
                         } 
-                        if (evt.getKeyCode() == '=' || evt.getKeyCode() == '+'){ 
+                        else if (evt.getKeyCode() == '=' || evt.getKeyCode() == '+'){ 
                             focus.tamanho(5);
                         } 
-                        if (evt.getKeyCode() == '-'){ 
+                        else if (evt.getKeyCode() == '-'){ 
                             focus.tamanho(-5);
                         }
-                        if (evt.getKeyCode() == KeyEvent.VK_DELETE){ 
+                        else if (evt.getKeyCode() == KeyEvent.VK_DELETE){ 
                             figs.remove(focus);
                         }
                     }
