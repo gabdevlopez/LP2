@@ -26,4 +26,5 @@
 
 <p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>".</p>
 
+<p>As figuras surgem com cores aleatórias de contorno e de fundo.</p>
 <p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória.</p>
