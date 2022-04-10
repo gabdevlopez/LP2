@@ -19,8 +19,8 @@
 
 <h2>Mudando as cores</h2>
 
-<p>Para mudar a cor de fundo da figura selecione-a e clique na <b>tecla f</b></p>
-<p>Para mudar a cor de contorno da figura selecione-a e clique na <b>tecla c</b></p>
+<p>Para mudar a cor de fundo da figura selecione-a e clique na <b>tecla f</b>.</p>
+<p>Para mudar a cor de contorno da figura selecione-a e clique na <b>tecla c</b>.</p>
 
 <h2>Observações:</h2>
 
