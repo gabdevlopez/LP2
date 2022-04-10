@@ -15,7 +15,7 @@
 
 <h2>Redimensionando</h2>
 
-<p>Ao clicar na figura aparecerá um mini quadrado no canto inferior direito dela (exceto pela figura "Texto" que aparecerá no canto superior direito) para redimensiona-lá basta clicar com o botão direito e do mouse e arrastar</p>
+<p>Ao clicar na figura aparecerá um mini quadrado no canto inferior direito dela (exceto pela figura "Texto" que aparecerá no canto superior direito) para redimensiona-lá basta clicar com o botão direito e do mouse e arrastar.</p>
 
 <h2>Mudando as cores</h2>
 
