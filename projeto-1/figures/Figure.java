@@ -33,18 +33,13 @@ public abstract class Figure {
     
     public void tamanho(int num){
 
-        if(num >= 0){
-            if(w >= 200){
-                w += -5;
-            }
-            w += 5;
+        if(w >= 200){
+            w = 198;
         }
-        else{
-            if(w <= 30){
-                w += 5;
-            }
-            w += -5;
+        else if( w <= 30){
+            w = 32;
         }
+        w += num;
     }
     
     public void corBorda(int rgb[]){
