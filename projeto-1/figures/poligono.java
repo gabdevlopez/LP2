@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class poligono extends Figure{
 
-    protected int[] pontosX;
-    protected int[] pontosY;
+    private int[] pontosX;
+    private int[] pontosY;
     protected int w = 50;
-    protected int aux = 0;
+    private int aux = 0;
 
     public poligono(int x, int y, int[] rgb, int[] rgb2) {
         

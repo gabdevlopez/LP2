@@ -3,7 +3,7 @@ package figures;
 import java.awt.*;
 
 public class Texto extends Figure{
-    protected String texto;
+    private String texto;
 
     public Texto (String texto, int x, int y, int[] rgb) {
         super(rgb, null, x, y);
