@@ -8,8 +8,8 @@ public abstract class Figure implements Ivisible{
     protected int[] rgb2;
     public int x;
     public int y;
-    public int w = 50, h = 50;
-    public boolean focus = false, quad = false, verificaCor = false;
+    protected int w = 50, h = 50;
+    protected boolean focus = false, quad = false, verificaCor = false;
     
 
     public Figure(int rgb[], int rgb2[], int x, int y) {
