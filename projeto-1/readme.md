@@ -15,14 +15,16 @@
 
 <h2>Redimensionando</h2>
 
-<p>Clique na figura que deseja redimensionar e em seguida:</p>
-<ul>    
-    <li>Ao apertar a tecla "<b>-</b>" diminui o tamanho da figura;</li>
-    <li>Ao apertar a tecla "<b>+</b>" (<i>ou a tecla "=" para teclados sem a parte numérica do teclado</i>) aumenta o tamanho da figura.</li>
-</ul>
+<p>Ao clicar na figura aparecerá um mini quadrado no canto inferior direito dela (exceto pela figura "Texto" que aparecerá no canto superior direito) para redimensiona-lá basta clicar com o botão direito e do mouse e arrastar.</p>
+
+<h2>Mudando as cores</h2>
+
+<p>Para mudar a cor de fundo da figura selecione-a e clique na <b>tecla f</b>.</p>
+<p>Para mudar a cor de contorno da figura selecione-a e clique na <b>tecla c</b>.</p>
 
 <h2>Observações:</h2>
 
 <p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>".</p>
 
+<p>As figuras surgem com cores aleatórias de contorno e de fundo.</p>
 <p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória.</p>

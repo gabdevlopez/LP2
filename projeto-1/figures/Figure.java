@@ -1,40 +1,58 @@
 package figures;
 
-import java.awt.Graphics;
+// import java.awt.Graphics;
+import Ivisible.Ivisible;
+import java.io.Serializable;
 
-public abstract class Figure {
+public abstract class Figure implements Ivisible, Serializable{
     protected int[] rgb;
-    protected int x, y;
-    protected int w = 50, h = 50;
+    protected int[] rgb2;
+    public int x;
+    public int y;
+    public int w = 50, h = 50;
+    protected boolean /*focus = false,*/ quad = false, verificaCor = false;
+    
 
-    public Figure(int rgb[], int x, int y) {
+    public Figure(int rgb[], int rgb2[], int x, int y) {
         this.rgb = rgb;
+        this.rgb2 = rgb2;
         this.x = x;
         this.y = y;
     }
+
     public void drag(int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
-    }
-    public void cor(int [] rgb){
-        this.rgb = rgb;
-    }
-
-    public boolean clicked (int mx, int my) {
-        return (this.x <= mx && mx<= this.x + this.w && this.y <= my && my <= this.y + this.w);
-    }
-
-    public void tamanho(int num){
-        if(this.w >= 30 && this.w <= 200){
-            if(this.w == 200){
-                num = -5;
-            }
-            else if(this.w == 30){
-                num = +5;
-            }
-            this.w += num;
-        }
+        x += dx;
+        y += dy;
     }
     
-    public abstract void paint(Graphics g);
+    // public boolean foco(boolean trueFalse){
+    //     return focus = trueFalse;
+    // }
+
+    public boolean foco2(){
+        return quad;
+    }
+    
+    public void tamanho(int num){
+
+        if(w >= 200){
+            w = 198;
+        }
+        else if( w <= 30){
+            w = 32;
+        }
+        w += num;
+    }
+    
+    public void corBorda(int rgb[]){
+        this.rgb = rgb;
+        verificaCor = true;
+    }
+    public void corFundo(int rgb2[]){
+        this.rgb2 = rgb2;
+        verificaCor = true;
+    }
+    
+    // public abstract void paint(Graphics g, boolean focused);
+    // public abstract boolean clicked(int mx, int my);
 }
