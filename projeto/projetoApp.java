@@ -106,7 +106,7 @@ class ListFrame extends JFrame {
                                 butFigs(but_focus.idx, mouse.x, mouse.y);
                             }
 
-                            if(evt.getClickCount() == 2 && !evt.isConsumed() && but.clicked(mouse.x, mouse.y) && but_focus.idx > 4 && but_focus.idx != 8){
+                            if(evt.getClickCount() == 2 && !evt.isConsumed()){
                                 evt.consume();
                                 but_focus = null;
                                 retorno = 0;
@@ -207,7 +207,7 @@ class ListFrame extends JFrame {
                         figs.add(new poligono(x,y, rgb, rgb2, false));
                     }
                     else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
-                        figs.add(new Texto("Hello world!", x,y, rgb2)); 
+                        figs.add(new Texto(texto, x,y, rgb2)); 
                     }
         
                     if(evt.getKeyChar() == VK_TAB){

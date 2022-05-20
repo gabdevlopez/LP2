@@ -17,18 +17,21 @@
 
 <h3>Botão delete</h3>
 
-<p>O delete funciona da mesma forma que os botões anteriores, é só clicar e depois selecionar uma figura e ela será removida. OBS.: para "deselecionar" o botão delete basta clicar duas vezes nele.</p>
+<p>O delete funciona da mesma forma que os botões anteriores, é só clicar e depois selecionar uma figura e ela será removida.</p>
 
 <h3>Botão cor</h3>
 
-<p>Ao clicar no botão cor um painel irá abrir pedindo para selecionar se gostaria de trocar a cor da borda, do fundo ou das duas de uma só vez. Para pintar uma figura com a cor desejada basta clicar no botão escolhido na hora da seleção e clicar na figura.</p>
+<p>Ao clicar no botão cor um painel irá abrir pedindo para selecionar se gostaria de trocar a cor da borda, do fundo ou das duas de uma só vez. Para pintar uma figura com a cor desejada basta clicar no botão 
+escolhido na hora da seleção e clicar na figura.</p>
+
+<p>OBS.: para "deselecionar" algum botão basta clicar duas vezes nele.</p>
 
 <h2>Criando as figuras</h2>
 
 <ul>    
     <li>Ao apertar a tecla <b>E</b> surge uma elipse;</li>
     <li>Ao apertar a tecla <b>R</b> surge um retângulo;</li>
-    <li>Ao apertar a tecla <b>T</b> surge um texto com o conteúdo: "Olá galera!";</li>
+    <li>Ao apertar a tecla <b>T</b> surge o texto que foi digitado quando botão texto foi clicado, mas caso não tenha digitado nada um texto com o conteúdo: "Hello word!" aparecerá;</li>
     <li>Ao apertar a tecla <b>P</b> surge um polígono de 6 lados.</li>
 </ul>
 
