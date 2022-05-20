@@ -3,7 +3,7 @@
 
 <h2>Botões</h2>
 
-<p>O menu de botões consiste em 9 botões: os 4 primeiros são as figuras e os outros 5, respectivamente, são: fundo, borda, delete, cor.</p>
+<p>O menu de botões consiste em 8 botões: os 4 primeiros são as figuras e os outros 4, respectivamente, são: fundo, borda, delete, cor.</p>
 
 <h3>Botões figuras</h3>
 
