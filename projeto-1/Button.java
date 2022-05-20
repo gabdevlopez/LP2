@@ -33,8 +33,16 @@ public class Button implements Ivisible {
         g2d.setStroke(new BasicStroke(2));
         g2d.drawRect(SPC, SPC+this.idx*DIM, DIM, DIM);
 
-        if(this.idx == 3 || this.idx > 4){
+        if(this.idx >= 4){
+            this.fig.x = PAD+SPC-4;
             this.fig.y = PAD+SPC + idx*DIM +20;
+
+            if(idx == 7){
+            this.fig.x = PAD+SPC-7;
+            }
+            if(idx == 8){
+            this.fig.x = PAD+SPC+6;
+            }
         }
         
         this.fig.paint(g, false);

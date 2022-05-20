@@ -1,5 +1,28 @@
 <h1>Comandos do programa</h1>
 
+
+<h2>Botões</h2>
+
+<p>O menu de botões consiste em 9 botões: os 4 primeiros são as figuras e os outros 5, respectivamente, são: fundo, borda, delete, cor.</p>
+
+<h3>Botões figuras</h3>
+
+<p>Para adicionar uma figura na tela através de um botão basta clicar na figura desejada e depois clicar em qualquer lugar da tela que a figura selecionada surgirá.</p>
+
+<p>O botão texto é uma exceção. Ao clicar nele uma caixa de texto abrirá pedindo para entrar com um texto, e, após isso, o texto aparecerá na tela.</p>
+
+<h3>Botões fundo e borda</h3>
+
+<p>O fundo e borda iniciam com uma cor aleatória, mas ao clicar no botão cor um painel de cores é mostradp na tela dando a opção de escolher a cor desejada. Para mudar o fundo ou a borda de uma figura basta clicar no botão e logo após clicar em alguma figura.</p>
+
+<h3>Botão delete</h3>
+
+<p>O delete funciona da mesma forma que os botões anteriores, é só clicar e depois selecionar uma figura e ela será removida. OBS.: para "deselecionar" o botão delete basta clicar duas vezes nele.</p>
+
+<h3>Botão cor</h3>
+
+<p>Ao clicar no botão cor um painel irá abrir pedindo para selecionar se gostaria de trocar a cor da borda, do fundo ou das duas de uma só vez. Para pintar uma figura com a cor desejada basta clicar no botão escolhido na hora da seleção e clicar na figura.</p>
+
 <h2>Criando as figuras</h2>
 
 <ul>    
@@ -15,7 +38,7 @@
 
 <h2>Redimensionando</h2>
 
-<p>Ao clicar na figura aparecerá um mini quadrado no canto inferior direito dela (exceto pela figura "Texto" que aparecerá no canto superior direito) para redimensiona-lá basta clicar com o botão direito e do mouse e arrastar.</p>
+<p>Ao clicar na figura aparecerá um mini quadrado no canto inferior direito dela (exceto pela figura "Texto" que aparecerá no canto superior direito) para redimensiona-lá basta clicar com o botão direito do mouse e arrastar.</p>
 
 <h2>Mudando as cores</h2>
 

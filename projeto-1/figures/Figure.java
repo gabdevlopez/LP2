@@ -1,6 +1,5 @@
 package figures;
 
-// import java.awt.Graphics;
 import Ivisible.Ivisible;
 import java.io.Serializable;
 
@@ -10,7 +9,7 @@ public abstract class Figure implements Ivisible, Serializable{
     public int x;
     public int y;
     public int w = 50, h = 50;
-    protected boolean /*focus = false,*/ quad = false, verificaCor = false;
+    protected boolean quad = false, verificaCor = false;
     
 
     public Figure(int rgb[], int rgb2[], int x, int y) {
@@ -25,10 +24,6 @@ public abstract class Figure implements Ivisible, Serializable{
         y += dy;
     }
     
-    // public boolean foco(boolean trueFalse){
-    //     return focus = trueFalse;
-    // }
-
     public boolean foco2(){
         return quad;
     }
@@ -52,7 +47,4 @@ public abstract class Figure implements Ivisible, Serializable{
         this.rgb2 = rgb2;
         verificaCor = true;
     }
-    
-    // public abstract void paint(Graphics g, boolean focused);
-    // public abstract boolean clicked(int mx, int my);
 }

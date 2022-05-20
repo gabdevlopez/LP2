@@ -19,36 +19,40 @@ class projetoApp {
 class ListFrame extends JFrame {
 
     ArrayList<Figure> figs = new ArrayList<Figure>();
-    ArrayList<Figure> figs2 = new ArrayList<Figure>();
     ArrayList<Button> buts = new ArrayList<Button>();
 
     Random A = new Random();
     Point mouse = null;
     Point posMouse = null;
     Figure focus = null;
-    Figure figAux = null;
     Button but_focus = null;
 
     boolean quad = false;
     boolean but_key = false;
+    boolean but_key2 = false;
+    boolean but_key3 = false;
+    int retorno;
     int cont = 0;
     int rgb[];
-    int rgb2[];
-    int rgb3[] =  new int[]{235, 245, 255};
-
+    int rgb2[] =  new int[]{235, 245, 255};
+    int rgbBut[] =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
+    int rgbBut2[] = new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
+    String texto = "Hello world";
+    String options[] = {"borda", "fundo", "ambas"};
     ListFrame () {
 
 
-        buts.add(new Button(1, new Rect(0,0, rgb3, rgb3)));
-        buts.add(new Button(2, new Elipse(0,0, rgb3, rgb3)));
-        buts.add(new Button(3, new Texto("Text", 0,0, rgb3)));
-        buts.add(new Button(4, new poligono(35,178, rgb3, rgb3, true)));
-        buts.add(new Button(5, new Texto("fundo", 0,0, rgb3)));
-        buts.add(new Button(6, new Texto("borda", 0,0, rgb3)));
-        buts.add(new Button(7, new Texto("Delete", 0,0, rgb3)));
+        buts.add(new Button(1, new Rect(0,0, rgb2, rgb2)));
+        buts.add(new Button(2, new Elipse(0,0, rgb2, rgb2)));
+        buts.add(new Button(3, new poligono(35,138, rgb2, rgb2, true)));
+        buts.add(new Button(4, new Texto("Texto", 0,0, rgb2)));
+        buts.add(new Button(5, new Texto("fundo", 0,0, rgb2)));
+        buts.add(new Button(6, new Texto("borda", 0,0, rgb2)));
+        buts.add(new Button(7, new Texto("Delete", 0,0, rgb2)));
+        buts.add(new Button(8, new Texto("cor", 0,0, rgb2)));
 
         try{
-            FileInputStream f = new FileInputStream("proj.svg");
+            FileInputStream f = new FileInputStream("proj.bin");
             ObjectInputStream o = new ObjectInputStream(f);
             figs = (ArrayList<Figure>)o.readObject();
             o.close();
@@ -62,7 +66,7 @@ class ListFrame extends JFrame {
                 public void windowClosing (WindowEvent e) {
 
                     try{
-                        FileOutputStream f = new FileOutputStream("proj.svg");
+                        FileOutputStream f = new FileOutputStream("proj.bin");
                         ObjectOutputStream o = new ObjectOutputStream(f);
                         o.writeObject(figs);
                         o.flush();
@@ -81,22 +85,34 @@ class ListFrame extends JFrame {
                 public void mousePressed(MouseEvent evt){
                     mouse = getMousePosition();
                     focus = null;
-
-                    //but_key é uma chave de controle. Ela é acessada no próximo click após clicar em um botão, fazendo assim
-                    //surgir a figura do respectivo botão onde aconteceu o click;
-                    if(but_key){
-                        if(!(mouse.x < 60 && mouse.y < 340)){
+                    
+                    if(but_key && but_focus != null){
+                        if(!(mouse.x < 60 && mouse.y < 380) && but_focus.idx != 4 && but_focus.idx != 8){
                             butFigs(but_focus.idx, mouse.x, mouse.y);
                             but_key = false;
                             but_focus = null;
                         }
+                        repaint();
                     }
 
                     for(Button but: buts){
+                        
                         if(but.clicked(mouse.x, mouse.y)){
                             but_focus = but;
                             but_key = true;
+
+                            
+                            if(but_focus.idx > 3){
+                                butFigs(but_focus.idx, mouse.x, mouse.y);
+                            }
+
+                            if(evt.getClickCount() == 2 && !evt.isConsumed() && but.clicked(mouse.x, mouse.y) && but_focus.idx > 4 && but_focus.idx != 8){
+                                evt.consume();
+                                but_focus = null;
+                                retorno = 0;
+                           }
                         }
+                        repaint();
                     }
 
                     for (int i = 0; i < figs.size(); i++){
@@ -105,13 +121,41 @@ class ListFrame extends JFrame {
                             quad = focus.foco2();
                             cont = i+1;
                         }
+                       repaint();
                     }
+                    
                     if(focus != null){ 
                         figs.remove(focus);
                         figs.add(focus);
                     }
 
-                    repaint();
+                    
+                    if(focus == null && but_key3){
+                        but_focus = null;
+                        but_key3 = false;
+                        retorno = 0;
+                    }
+                    if(but_key2 && focus != null){
+
+                        if(retorno == 1){
+                            focus.corFundo(rgbBut);
+                            but_focus = buts.get(4);
+                            but_key3 = true;
+                        }
+                        else if(retorno == 2){
+                            focus.corBorda(rgbBut2);
+                            but_focus = buts.get(5);
+                            but_key3 = true;
+                        }
+                        else if(retorno == 3){
+
+                            figs.remove(focus);
+                            but_focus = buts.get(6);
+                            focus = null;
+                            // but_key3 = true;
+                        }
+                    }
+               repaint();
                 }
             });
 
@@ -149,32 +193,33 @@ class ListFrame extends JFrame {
                         x = A.nextInt(350);
                         y = A.nextInt(350);
                     }
+                    
                     rgb =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
                     rgb2 =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
 
                     if (evt.getKeyChar() == 'r' || evt.getKeyChar() == 'R'){
-                        adicionaFig(new Rect(x,y, rgb, rgb2));
+                        figs.add(new Rect(x,y, rgb, rgb2));
                     } 
                     else if (evt.getKeyChar() == 'e' || evt.getKeyChar() == 'E'){
-                        adicionaFig(new Elipse(x,y, rgb, rgb2)); 
+                        figs.add(new Elipse(x,y, rgb, rgb2)); 
                     } 
                     else if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
-                        adicionaFig(new poligono(x,y, rgb, rgb2, false));
+                        figs.add(new poligono(x,y, rgb, rgb2, false));
                     }
                     else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
-                        adicionaFig(new Texto("ola galera!", x,y, rgb2)); 
+                        figs.add(new Texto("Hello world!", x,y, rgb2)); 
                     }
         
                     if(evt.getKeyChar() == VK_TAB){
                         if(figs.size() > 0){
                             
-                            if(cont > figs2.size()-1){
+                            if(cont > figs.size()-1){
                                 cont = 0;
                             }
 
-                            for(Figure fig: figs2){
-                                if(fig == figs2.get(cont)){
-                                    focus = figs2.get(cont);
+                            for(Figure fig: figs){
+                                if(fig == figs.get(cont)){
+                                    focus = figs.get(cont);
                                 }
                             }
                             cont++;
@@ -203,7 +248,6 @@ class ListFrame extends JFrame {
                         } 
                         else if (evt.getKeyCode() == VK_DELETE){ 
                             figs.remove(focus);
-                            figs2.remove(focus);
                             focus = null;
                         }
                     }
@@ -212,40 +256,85 @@ class ListFrame extends JFrame {
             });
 
         setFocusTraversalKeysEnabled(false);
-        this.setTitle("Projeto-1");
-        this.setSize(350, 350);
+        this.setTitle("Projeto");
+        this.setSize(400, 400);
         this.getContentPane().setBackground(Color.black);
 
     }
 
     public void butFigs(int idx, int x, int y){
-
+        
         rgb =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
         rgb2 =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
+        
+        if(idx > 4 && idx < 8){
+            but_key2 = true;
+        }
+        else{
+            retorno = 0;
+            but_key2 = false;
+        }
 
-        switch (idx) {
+        switch (idx){
+
             case 1:
-                adicionaFig(new Rect(x,y, rgb, rgb2));
+                figs.add(new Rect(x,y, rgb, rgb2));
                 break;
             case 2:
-                adicionaFig(new Elipse(x,y, rgb, rgb2));
+                figs.add(new Elipse(x,y, rgb, rgb2));
                 break;
             case 3:
-                adicionaFig(new Texto("ola galera!", x,y, rgb2)); 
+                figs.add(new poligono(x,y, rgb, rgb2, false));
                 break;
             case 4:
-                adicionaFig(new poligono(x,y, rgb, rgb2, false));
+                texto = JOptionPane.showInputDialog(null, "Digite o texto");
+                if(texto != null && !texto.isEmpty() && !texto.trim().equals("")){
+                    figs.add(new Texto(texto, 200,200, rgb2)); 
+                    but_focus = null;
+                } 
+                else but_focus = null;
                 break;
+            case 5:
+                retorno = 1;
+                break;
+            case 6:
+                retorno = 2;
+                break;
+            case 7:
+                retorno = 3;
+                break;
+            case 8:
+
+                int option = JOptionPane.showOptionDialog(null, "Voce deseja trocar a cor da borda ou de fundo?", 
+                        "troca de cor", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                
+                if(option == 0 || option == 1 || option == 2){
+                    Color novaCor = JColorChooser.showDialog(null, "Por favor escolha a cor", Color.blue);
+                    if(option == 0){
+                        rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                        but_focus = buts.get(5);
+                        retorno = 1;
+                    }
+                    else if(option == 1){
+                        rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                        but_focus = buts.get(4);
+                        retorno = 2;
+                    }
+                    else if(option == 2){
+                        rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                        rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                        
+                    }
+                    else{
+                        but_focus = null;
+                    }
+                }
+            break;
             
             default:
                 break;
         }
-    }
-
-    public void adicionaFig(Figure fig){
-        figs.add(fig);
-        figs2.add(fig);
-        focus = fig;
+        repaint();
     }
 
     public void paint (Graphics g) {
