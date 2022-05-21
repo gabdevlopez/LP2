@@ -129,6 +129,10 @@ class ListFrame extends JFrame {
                             focus = figs.get(i);
                             quad = focus.foco2();
                             cont = i+1;
+
+                            if((mouse.x < 55 && mouse.x > 10 && mouse.y < 425) && but_key){
+                                focus = null;
+                            }
                         }
                        repaint();
                     }
@@ -178,10 +182,12 @@ class ListFrame extends JFrame {
                             if(focus != null){
                                 int dx = evt.getX() - mouse.x;
                                 int dy = evt.getY() - mouse.y;
-                                if(focus.x < 65 && focus.y < 425){
-                                    dx = 0;
-                                    focus.x = 66;
-                                }
+                                System.out.format("%d\n", focus.x);
+                                // if(focus.x < 65 && focus.y < 425){
+                                //     dx = 0;
+                                //     focus.x = 66;
+                                // }
+                            
                                 focus.drag(dx, dy);
                             }
                         }
@@ -210,19 +216,22 @@ class ListFrame extends JFrame {
                     rgb =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
                     rgb2 =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
 
-                    if (evt.getKeyChar() == 'r' || evt.getKeyChar() == 'R'){
-                        figs.add(new Rect(x,y, rgb, rgb2));
-                    } 
-                    else if (evt.getKeyChar() == 'e' || evt.getKeyChar() == 'E'){
-                        figs.add(new Elipse(x,y, rgb, rgb2)); 
-                    } 
-                    else if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
-                        figs.add(new poligono(x,y, rgb, rgb2, false));
+                    if(!(posMouse.x < 60 && posMouse.y < 425)){
+                        
+                        if (evt.getKeyChar() == 'r' || evt.getKeyChar() == 'R'){
+                            figs.add(new Rect(x,y, rgb, rgb2));
+                        } 
+                        else if (evt.getKeyChar() == 'e' || evt.getKeyChar() == 'E'){
+                            figs.add(new Elipse(x,y, rgb, rgb2)); 
+                        } 
+                        else if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
+                            figs.add(new poligono(x,y, rgb, rgb2, false));
+                        }
+                        else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
+                            figs.add(new Texto(texto, x,y, rgb2)); 
+                        }
                     }
-                    else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
-                        figs.add(new Texto(texto, x,y, rgb2)); 
-                    }
-        
+            
                     else if (evt.getKeyChar() == 'c' || evt.getKeyChar() == 'C'){
                         butFigs(8, 0, 0);
                     } 

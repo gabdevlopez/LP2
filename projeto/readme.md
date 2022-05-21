@@ -29,7 +29,6 @@ escolhido na hora da seleção e clicar na figura.</p>
 
 <p>Significa delete All e ao ser clicado abre uma caixa de confirmação.</p>
 
-<p>OBS.: para "deselecionar" algum botão basta clicar duas vezes nele.</p>
 
 <h2>Criando as figuras</h2>
 
@@ -55,7 +54,10 @@ escolhido na hora da seleção e clicar na figura.</p>
 
 <h2>Observações:</h2>
 
+<p>Para retirar a seleção de algum botão basta clicar duas vezes nele.</p>
+
 <p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>".</p>
 
 <p>As figuras surgem com cores aleatórias de contorno e de fundo.</p>
+
 <p>As figuras surgem onde o mouse estiver, mas caso o mouse esteja de fora da janela elas surgirão de forma aleatória.</p>
