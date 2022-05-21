@@ -21,8 +21,13 @@
 
 <h3>Botão cor</h3>
 
-<p>Ao clicar no botão cor um painel irá abrir pedindo para selecionar se gostaria de trocar a cor da borda, do fundo ou das duas de uma só vez. Para pintar uma figura com a cor desejada basta clicar no botão 
+<p>Ao clicar no botão cor ou na tecla "c" do teclado um painel irá abrir pedindo para selecionar se gostaria de trocar a cor da borda, do fundo ou das duas de uma só vez. Para pintar uma figura com a cor desejada basta clicar no botão 
 escolhido na hora da seleção e clicar na figura.</p>
+
+
+<h3>Botão DALL</h3>
+
+<p>Significa delete All e ao ser clicado abre uma caixa de confirmação.</p>
 
 <p>OBS.: para "deselecionar" algum botão basta clicar duas vezes nele.</p>
 
@@ -31,7 +36,7 @@ escolhido na hora da seleção e clicar na figura.</p>
 <ul>    
     <li>Ao apertar a tecla <b>E</b> surge uma elipse;</li>
     <li>Ao apertar a tecla <b>R</b> surge um retângulo;</li>
-    <li>Ao apertar a tecla <b>T</b> surge o texto que foi digitado quando botão texto foi clicado, mas caso não tenha digitado nada um texto com o conteúdo: "Hello word!" aparecerá;</li>
+    <li>Ao apertar a tecla <b>T</b> surge o texto que foi digitado quando botão texto foi clicado, mas caso não tenha digitado nada um texto com o conteúdo "Hello word!" aparecerá;</li>
     <li>Ao apertar a tecla <b>P</b> surge um polígono de 6 lados.</li>
 </ul>
 
@@ -45,8 +50,8 @@ escolhido na hora da seleção e clicar na figura.</p>
 
 <h2>Mudando as cores</h2>
 
-<p>Para mudar a cor de fundo da figura selecione-a e clique na <b>tecla f</b>.</p>
-<p>Para mudar a cor de contorno da figura selecione-a e clique na <b>tecla c</b>.</p>
+<p>Para mudar a cor de fundo da figura selecione-a e clique na <b>tecla f</b> ou no botão <b>fundo</b>.</p>
+<p>Para mudar a cor da borda da figura selecione-a e clique na <b>tecla b</b> ou no botão <b>borda</b>.</p>
 
 <h2>Observações:</h2>
 

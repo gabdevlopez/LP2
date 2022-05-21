@@ -38,20 +38,23 @@ class ListFrame extends JFrame {
     int rgb2[] =  new int[]{235, 245, 255};
     int rgbBut[] =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
     int rgbBut2[] = new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
-    String texto = "Hello world";
-    String textoR = "Hello world";
-    String options[] = {"borda", "fundo", "ambas"};
-    ListFrame () {
+    String texto = "Hello world!";
+    String textoR = "Hello world!";
+    String options[] = {"Borda", "Fundo", "Ambas"};
+    String options2[] = {"Sim", "Nao"};
 
+
+    ListFrame(){
 
         buts.add(new Button(1, new Rect(0,0, rgb2, rgb2)));
         buts.add(new Button(2, new Elipse(0,0, rgb2, rgb2)));
         buts.add(new Button(3, new poligono(35,138, rgb2, rgb2, true)));
         buts.add(new Button(4, new Texto("Texto", 0,0, rgb2)));
-        buts.add(new Button(5, new Texto("fundo", 0,0, rgb2)));
-        buts.add(new Button(6, new Texto("borda", 0,0, rgb2)));
+        buts.add(new Button(5, new Texto("Fundo", 0,0, rgb2)));
+        buts.add(new Button(6, new Texto("Borda", 0,0, rgb2)));
         buts.add(new Button(7, new Texto("Delete", 0,0, rgb2)));
-        buts.add(new Button(8, new Texto("cor", 0,0, rgb2)));
+        buts.add(new Button(8, new Texto("Cor", 0,0, rgb2)));
+        buts.add(new Button(9, new Texto("DALL", 0,0, rgb2)));
 
         try{
             FileInputStream f = new FileInputStream("proj.bin");
@@ -89,7 +92,7 @@ class ListFrame extends JFrame {
                     focus = null;
                     
                     if(but_key && but_focus != null){
-                        if(!(mouse.x < 60 && mouse.y < 380) && but_focus.idx != 4 && but_focus.idx != 8){
+                        if(!(mouse.x < 60 && mouse.y < 425) && but_focus.idx != 4 && but_focus.idx != 8){
                             butFigs(but_focus.idx, mouse.x, mouse.y);
                             but_key = false;
                             but_focus = null;
@@ -111,7 +114,12 @@ class ListFrame extends JFrame {
                                 evt.consume();
                                 but_focus = null;
                                 retorno = 0;
-                           }
+                            }
+                            if(idxAux != but.idx){
+                                but_key3 = false;
+                                retorno = 0;
+                            }
+                           idxAux = but.idx;
                         }
                         repaint();
                     }
@@ -129,17 +137,19 @@ class ListFrame extends JFrame {
                         figs.remove(focus);
                         figs.add(focus);
                     }
-
-                    
-                    if(focus == null && but_key3){
+                
+                    if(focus == null && but_key3 || but_focus == null && focus == null){
                         but_focus = null;
+                        but_key2 = false;
                         but_key3 = false;
                         retorno = 0;
                     }
+
                     if(but_key2 && focus != null){
 
                         if(retorno == 1){
                             focus.corFundo(rgbBut);
+                            if(focus.getClass().getSimpleName().equals("Texto")) focus.corBorda(rgbBut);;
                             but_focus = buts.get(4);
                             but_key3 = true;
                         }
@@ -149,11 +159,9 @@ class ListFrame extends JFrame {
                             but_key3 = true;
                         }
                         else if(retorno == 3){
-
                             figs.remove(focus);
                             but_focus = buts.get(6);
-                            focus = null;
-                            // but_key3 = true;
+                            but_key3 = true;
                         }
                     }
                repaint();
@@ -170,15 +178,15 @@ class ListFrame extends JFrame {
                             if(focus != null){
                                 int dx = evt.getX() - mouse.x;
                                 int dy = evt.getY() - mouse.y;
-                                if(focus.x < 65 && focus.y < 380){
+                                if(focus.x < 65 && focus.y < 425){
                                     dx = 0;
                                     focus.x = 66;
                                 }
                                 focus.drag(dx, dy);
                             }
                         }
-                        repaint();
                         mouse = evt.getPoint();
+                        repaint();
                     }
                 }
             );
@@ -215,7 +223,11 @@ class ListFrame extends JFrame {
                         figs.add(new Texto(texto, x,y, rgb2)); 
                     }
         
-                    if(evt.getKeyChar() == VK_TAB){
+                    else if (evt.getKeyChar() == 'c' || evt.getKeyChar() == 'C'){
+                        butFigs(8, 0, 0);
+                    } 
+
+                    else if(evt.getKeyChar() == VK_TAB){
                         if(figs.size() > 0){
                             
                             if(cont > figs.size()-1){
@@ -230,14 +242,16 @@ class ListFrame extends JFrame {
                             cont++;
                         }
                     } 
+                    
 
                     if (focus != null){
 
-                        if (evt.getKeyChar() == 'c' || evt.getKeyChar() == 'C'){
+                        if (evt.getKeyChar() == 'b' || evt.getKeyChar() == 'B'){
                             focus.corBorda(rgb);
                         } 
                         else if (evt.getKeyChar() == 'f' || evt.getKeyChar() == 'F'){
                             focus.corFundo(rgb2);
+                            if(focus.getClass().getSimpleName().equals("Texto")) focus.corBorda(rgb2);;
                         } 
                         else if (evt.getKeyCode() == VK_UP){ 
                             focus.drag(0,-5);   
@@ -262,7 +276,7 @@ class ListFrame extends JFrame {
 
         setFocusTraversalKeysEnabled(false);
         this.setTitle("Projeto");
-        this.setSize(400, 400);
+        this.setSize(450, 450);
         this.getContentPane().setBackground(Color.black);
 
     }
@@ -297,7 +311,7 @@ class ListFrame extends JFrame {
                     texto = textoR;
                     figs.add(new Texto(texto, 200,200, rgb2)); 
                     but_focus = null;
-                    }
+                }
                 else{
                     but_focus = null;
                 }
@@ -318,28 +332,42 @@ class ListFrame extends JFrame {
                 
                 if(option == 0 || option == 1 || option == 2){
                     Color novaCor = JColorChooser.showDialog(null, "Por favor escolha a cor", Color.blue);
-                    if(option == 0){
-                        rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
-                        but_focus = buts.get(5);
-                        retorno = 1;
-                        but_key3 = false;
+
+                    if(novaCor != null){
+
+                        if(option == 0){
+                            rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                            but_focus = buts.get(5);
+                            retorno = 1;
+                            but_key3 = false;
+                        }
+                        else if(option == 1){
+                            rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                            but_focus = buts.get(4);
+                            retorno = 2;
+                            but_key3 = false;
+                        }
+                        else if(option == 2){
+                            rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                            rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
+                            but_focus = null;
+                        }
                     }
-                    else if(option == 1){
-                        rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
-                        but_focus = buts.get(4);
-                        retorno = 2;
-                        but_key3 = false;
-                    }
-                    else if(option == 2){
-                        rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
-                        rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
-                    }
-                    else{
-                        but_focus = null;
-                    }
+                    else but_focus = null;
                 }
-            break;
-            
+                else but_focus = null;
+                break;
+
+            case 9:
+                int optionDelete = JOptionPane.showOptionDialog(null, "Voce realmente deseja deletar TODA a sua area de trabalho?", 
+                "Delete All", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options2, options2[1]);
+                    
+                if(optionDelete == 0){
+                    figs.removeAll(figs);
+                    but_focus =  null;
+                } 
+                    else but_focus =  null;
+                break;
             default:
                 break;
         }
