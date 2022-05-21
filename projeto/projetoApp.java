@@ -182,7 +182,6 @@ class ListFrame extends JFrame {
                             if(focus != null){
                                 int dx = evt.getX() - mouse.x;
                                 int dy = evt.getY() - mouse.y;
-                                System.out.format("%d\n", focus.x);
                                 // if(focus.x < 65 && focus.y < 425){
                                 //     dx = 0;
                                 //     focus.x = 66;
@@ -215,9 +214,10 @@ class ListFrame extends JFrame {
                     
                     rgb =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
                     rgb2 =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
-
-                    if(!(posMouse.x < 60 && posMouse.y < 425)){
-                        
+                    
+                    if((posMouse.x < 55 && posMouse.y < 425)){
+                        x = 60;
+                    }
                         if (evt.getKeyChar() == 'r' || evt.getKeyChar() == 'R'){
                             figs.add(new Rect(x,y, rgb, rgb2));
                         } 
@@ -225,12 +225,14 @@ class ListFrame extends JFrame {
                             figs.add(new Elipse(x,y, rgb, rgb2)); 
                         } 
                         else if (evt.getKeyChar() == 'p' || evt.getKeyChar() == 'P'){
+                            if((posMouse.x < 55 && posMouse.y < 425)){
+                                x = 85;
+                            }
                             figs.add(new poligono(x,y, rgb, rgb2, false));
                         }
                         else if (evt.getKeyChar() == 't' || evt.getKeyChar() == 'T'){
                             figs.add(new Texto(texto, x,y, rgb2)); 
                         }
-                    }
             
                     else if (evt.getKeyChar() == 'c' || evt.getKeyChar() == 'C'){
                         butFigs(8, 0, 0);

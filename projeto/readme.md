@@ -54,7 +54,7 @@ escolhido na hora da seleção e clicar na figura.</p>
 
 <h2>Observações:</h2>
 
-<p>Para retirar a seleção de algum botão basta clicar duas vezes nele.</p>
+<p>Para retirar a seleção de algum botão basta clicar duas vezes nele ou em qualquer lugar vazio da tela.</p>
 
 <p>Para deletar alguma forma, basta clicar na figura e apertar a tecla "<b>delete</b>".</p>
 
