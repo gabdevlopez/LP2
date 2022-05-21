@@ -43,8 +43,7 @@ public class Button implements Ivisible {
             if(idx == 8){
             this.fig.x = PAD+SPC+6;
             }
-        }
-        
+        }   
         this.fig.paint(g, false);
     }
 }

@@ -33,11 +33,13 @@ class ListFrame extends JFrame {
     boolean but_key3 = false;
     int retorno;
     int cont = 0;
+    int idxAux = 0;
     int rgb[];
     int rgb2[] =  new int[]{235, 245, 255};
     int rgbBut[] =  new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
     int rgbBut2[] = new int[]{A.nextInt(255), A.nextInt(255), A.nextInt(255)};
     String texto = "Hello world";
+    String textoR = "Hello world";
     String options[] = {"borda", "fundo", "ambas"};
     ListFrame () {
 
@@ -94,14 +96,13 @@ class ListFrame extends JFrame {
                         }
                         repaint();
                     }
-
+                
                     for(Button but: buts){
                         
                         if(but.clicked(mouse.x, mouse.y)){
                             but_focus = but;
                             but_key = true;
 
-                            
                             if(but_focus.idx > 3){
                                 butFigs(but_focus.idx, mouse.x, mouse.y);
                             }
@@ -169,6 +170,10 @@ class ListFrame extends JFrame {
                             if(focus != null){
                                 int dx = evt.getX() - mouse.x;
                                 int dy = evt.getY() - mouse.y;
+                                if(focus.x < 65 && focus.y < 380){
+                                    dx = 0;
+                                    focus.x = 66;
+                                }
                                 focus.drag(dx, dy);
                             }
                         }
@@ -287,12 +292,15 @@ class ListFrame extends JFrame {
                 figs.add(new poligono(x,y, rgb, rgb2, false));
                 break;
             case 4:
-                texto = JOptionPane.showInputDialog(null, "Digite o texto");
-                if(texto != null && !texto.isEmpty() && !texto.trim().equals("")){
+                textoR  = JOptionPane.showInputDialog(null, "Digite o texto");
+                if(textoR != null && !textoR.isEmpty() && !textoR.trim().equals("")){
+                    texto = textoR;
                     figs.add(new Texto(texto, 200,200, rgb2)); 
                     but_focus = null;
-                } 
-                else but_focus = null;
+                    }
+                else{
+                    but_focus = null;
+                }
                 break;
             case 5:
                 retorno = 1;
@@ -314,16 +322,17 @@ class ListFrame extends JFrame {
                         rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
                         but_focus = buts.get(5);
                         retorno = 1;
+                        but_key3 = false;
                     }
                     else if(option == 1){
                         rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
                         but_focus = buts.get(4);
                         retorno = 2;
+                        but_key3 = false;
                     }
                     else if(option == 2){
                         rgbBut = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
                         rgbBut2 = new int[]{novaCor.getRed(), novaCor.getGreen(), novaCor.getBlue()};
-                        
                     }
                     else{
                         but_focus = null;
