@@ -4,8 +4,8 @@ import Ivisible.Ivisible;
 import java.io.Serializable;
 
 public abstract class Figure implements Ivisible, Serializable{
-    protected int[] rgb;
-    protected int[] rgb2;
+    public int[] rgb;
+    public int[] rgb2;
     public int x;
     public int y;
     public int w = 50, h = 50;

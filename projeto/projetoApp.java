@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.lang.String;
+import javax.swing.JFileChooser;
 import java.io.*;
 import static java.awt.event.KeyEvent.*;
 
@@ -253,6 +254,15 @@ class ListFrame extends JFrame {
                             cont++;
                         }
                     } 
+                    if(evt.getKeyChar() == 's'){
+                        JFileChooser fileChooser = new JFileChooser();
+                        fileChooser.setDialogTitle("Salvar no formato SVG. Defina o local e o nome do arquivo");   
+                        int userSelection = fileChooser.showSaveDialog(null);
+                         if (userSelection == JFileChooser.APPROVE_OPTION){
+                            File fileToSave = fileChooser.getSelectedFile();
+                            criarSVG(figs, fileToSave.getAbsolutePath());
+                        }
+                    }
                     
 
                     if (focus != null){
@@ -396,4 +406,54 @@ class ListFrame extends JFrame {
             but.paint(g, but == but_focus);
         }
     }
+
+    public void criarSVG(ArrayList<Figure> figs, String fileName){
+		String format = ".svg";
+		try{
+      		File Stream = new File(fileName + format );
+
+      		if (!Stream.createNewFile() ) {
+      			System.out.println("Arquivo já existe\n");
+      		}
+
+      		FileWriter Writer = new FileWriter(fileName+format);
+      		Writer.write("<svg width=\"1500\" height=\"1000\">\n");
+
+      		Writer.write(" <rect width=\"100%\" height=\"100%\" fill=\"white\" />\n");
+
+      		for(Figure fig: figs){
+				String rgb = String.format("rgb(%d,%d,%d)", fig.rgb[0],  fig.rgb[1], fig.rgb[2]);
+				String rgb2 = String.format("rgb(%d,%d,%d)", fig.rgb2[0], fig.rgb2[0], fig.rgb2[0]);
+				if(fig instanceof Rect){
+					Writer.write("<Rect x=\""+ fig.x +"\" y=\""+ fig.y +"\" width=\""+ fig.w +
+					"\" height=\"" + fig.h + "\" style=\"fill:"+ rgb2 +
+					";stroke-width:3;stroke:"+ rgb +"\" />\n");
+				}
+				else if( fig instanceof Texto){
+					Writer.write("<Texto x=\""+ fig.x +"\" y=\""+ fig.y +
+					"\" rx=\"10\" ry=\"10\" width=\""+ fig.w +
+					"\" height=\"" + fig.h + "\" style=\"fill:"+ rgb2 +
+					";stroke-width:3;stroke:"+ rgb +"\" />\n");
+				}
+				else if( fig instanceof Elipse){
+					Writer.write("<Elipse cx=\""+ (fig.x + (fig.w*0.5)) +"\" cy=\""+ (fig.y + (fig.h*0.5))+ "\" rx=\""+ (fig.w*0.5) + "\"" +
+					" ry=\""+ (fig.h*0.5) + "\""+
+					" style=\"fill:"+ rgb2 +
+					";stroke-width:3;stroke:"+ rgb +"\" />\n");
+				}
+				else if( fig instanceof poligono){
+                    // this.pontosX = new int[] {x, x+25, x+25, x, x-25, x-25};
+                    // this.pontosY = new int[] {y, y+15, y+40, y+55, y+40, y+15};
+					String points = String.format("%d,%d %d,%d %d,%d, %d,%d %d,%d, %d,%d", fig.x, fig.y, fig.x+25, fig.y+15, fig.x+25, fig.y+40, fig.x, fig.y+55, fig.x-25, fig.y+40, fig.x-25, fig.y+15);
+					Writer.write("<poligono points=\""+ points +"\" "+ "style=\"fill:"+ rgb2 + ";stroke-width:3;stroke:"+ rgb +"\" />\n");	
+				}
+			}
+      		Writer.write("</svg>");
+      		Writer.close();
+    	}
+    	catch (IOException e){
+      		System.out.println("Ocorreu um erro.");
+      		e.printStackTrace();
+    	}
+	}
 }
