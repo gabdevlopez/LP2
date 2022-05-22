@@ -260,7 +260,7 @@ class ListFrame extends JFrame {
                         int userSelection = fileChooser.showSaveDialog(null);
                          if (userSelection == JFileChooser.APPROVE_OPTION){
                             File fileToSave = fileChooser.getSelectedFile();
-                            criarSVG(figs, fileToSave.getAbsolutePath());
+                            SVG(figs, fileToSave.getAbsolutePath());
                         }
                     }
                     
@@ -407,7 +407,7 @@ class ListFrame extends JFrame {
         }
     }
 
-    public void criarSVG(ArrayList<Figure> figs, String fileName){
+    public void SVG(ArrayList<Figure> figs, String fileName){
 		String format = ".svg";
 		try{
       		File Stream = new File(fileName + format );
