@@ -183,10 +183,6 @@ class ListFrame extends JFrame {
                             if(focus != null){
                                 int dx = evt.getX() - mouse.x;
                                 int dy = evt.getY() - mouse.y;
-                                // if(focus.x < 65 && focus.y < 425){
-                                //     dx = 0;
-                                //     focus.x = 66;
-                                // }
                             
                                 focus.drag(dx, dy);
                             }
@@ -254,7 +250,7 @@ class ListFrame extends JFrame {
                             cont++;
                         }
                     } 
-                    if(evt.getKeyChar() == 's'){
+                    if(evt.getKeyChar() == 's' || evt.getKeyChar() == 'S'){
                         JFileChooser fileChooser = new JFileChooser();
                         fileChooser.setDialogTitle("Salvar no formato SVG. Defina o local e o nome do arquivo");   
                         int userSelection = fileChooser.showSaveDialog(null);
